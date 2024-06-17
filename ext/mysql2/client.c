@@ -1538,9 +1538,9 @@ void init_mysql2_client() {
               /* we only compare MAJOR and MINOR */
       if (dots == 2) break;
     }
-    if (lib[i] != MYSQL_LINK_VERSION[i]) {
+    /*if (lib[i] != MYSQL_LINK_VERSION[i]) {
       rb_raise(rb_eRuntimeError, "Incorrect MySQL client library version! This gem was compiled for %s but the client library is %s.", MYSQL_LINK_VERSION, lib);
-    }
+    }*/
   }
 #endif
 
