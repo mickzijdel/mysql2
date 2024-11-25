@@ -28,7 +28,7 @@ def add_ssl_defines(header)
   end
 end
 
-### Check for Ruby C extention interfaces
+### Check for Ruby C extension interfaces
 
 # 2.1+
 have_func('rb_absint_size')
@@ -86,7 +86,7 @@ dirs = ENV.fetch('PATH').split(File::PATH_SEPARATOR) + %w[
   /usr/local/opt/mysql@*
   /usr/local/opt/mysql-client
   /usr/local/opt/mysql-client@*
-].map { |dir| dir << '/bin' }
+].map { |dir| "#{dir}/bin" }
 
 # For those without HOMEBREW_ROOT in PATH
 dirs << "#{ENV['HOMEBREW_ROOT']}/bin" if ENV['HOMEBREW_ROOT']
@@ -159,6 +159,7 @@ have_const('SERVER_QUERY_NO_INDEX_USED', mysql_h)
 have_const('SERVER_QUERY_WAS_SLOW', mysql_h)
 have_const('MYSQL_OPTION_MULTI_STATEMENTS_ON', mysql_h)
 have_const('MYSQL_OPTION_MULTI_STATEMENTS_OFF', mysql_h)
+have_const('MYSQL_OPT_GET_SERVER_PUBLIC_KEY', mysql_h)
 
 # my_bool is replaced by C99 bool in MySQL 8.0, but we want
 # to retain compatibility with the typedef in earlier MySQLs.
